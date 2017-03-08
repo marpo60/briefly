@@ -1,0 +1,26 @@
+<div class="container-full">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h1>Share your links briefly!</h1>
+
+      <%= form_tag("/", id: "new-short-url-form", class: "col-lg-8 col-lg-offset-2")  do %>
+        <div class="input-group">
+          <%= text_field_tag("url", nil, class: "form-control input-lg", placeholder: "http://....") %>
+          <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">SHORTEN</button></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <% if @short_url %>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <h2 class="bg-success">
+            <%= short_url_url(@short_url.key) %>
+          </h2>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
